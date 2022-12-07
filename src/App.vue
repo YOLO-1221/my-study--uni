@@ -14,5 +14,6 @@ export default {
 
 <style>
 /*每个页面公共css */
+@import 'uview-ui/index.scss';
 /* 引入iconfont */
 </style>
