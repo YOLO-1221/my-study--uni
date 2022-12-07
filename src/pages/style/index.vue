@@ -1,5 +1,7 @@
 <template>
-  <view class="page"> 样式 </view>
+  <view class="page">
+    <ComNavBar title="样式"></ComNavBar>
+  </view>
 </template>
 
 <script>

@@ -58,5 +58,10 @@
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
+	},
+	"easycom": {
+		"custom": {
+			"^Com(.*)": "@/components/common/$1/$1.vue"
+		}
 	}
 }

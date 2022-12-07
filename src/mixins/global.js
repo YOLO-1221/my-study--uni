@@ -19,14 +19,14 @@ let mainHeight = (screenHeight - statusBarHeight - safeBottom) || 667
 // 获取胶囊信息
 let menuButtonInfo = uni.getMenuButtonBoundingClientRect() || {}
 let menuButtonAttr = {}
-menuButtonAttr.menuButtonWidth = menuButtonInfo.width || 87
-menuButtonAttr.menuButtonHeight = menuButtonInfo.height || 32
-menuButtonAttr.menuButtonTop = menuButtonInfo.top || 8 + statusBarHeight
-menuButtonAttr.menuButtonRight = menuButtonInfo.right || 368
-menuButtonAttr.menuButtonLeft = menuButtonInfo.left || 281
+menuButtonAttr.width = menuButtonInfo.width || 87
+menuButtonAttr.height = menuButtonInfo.height || 32
+menuButtonAttr.top = menuButtonInfo.top || 8 + statusBarHeight
+menuButtonAttr.right = menuButtonInfo.right || 368
+menuButtonAttr.left = menuButtonInfo.left || 281
 
 // 设计固定的自定义导航栏高度
-let navBarHeight = 44
+let navBarHeight = menuButtonInfo.height + (menuButtonInfo.top - statusBarHeight) * 2 || 44
 
 const px2rpx = (px, direct = false, useUnit = true) => {
   let r = direct ? parseFloat(px) : (750 * parseFloat(px)) / screenWidth
