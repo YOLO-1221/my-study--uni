@@ -1,6 +1,10 @@
 <template>
   <view class="page">
     <ComNavBar title="样式"></ComNavBar>
+
+    <u-cell-group>
+      <u-cell title="分段器" url="/packageStyle/Subsection/index"></u-cell>
+    </u-cell-group>
   </view>
 </template>
 
@@ -9,7 +13,9 @@ export default {
   data() {
     return {}
   },
-  onLoad() {},
+  onLoad() {
+    console.log(uni.$u.config.v)
+  },
   methods: {},
 }
 </script>

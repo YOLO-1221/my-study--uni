@@ -10,7 +10,7 @@ let sysInfo = uni.getSystemInfoSync()
  * screenWidth 屏幕宽度
  * screenHeight 整屏高度
  */
-let { statusBarHeight, safeAreaInsets, screenWidth, screenHeight } = sysInfo
+let { statusBarHeight, safeAreaInsets, screenWidth, screenHeight, theme } = sysInfo
 // 底部安全距离
 let safeBottom = safeAreaInsets ? safeAreaInsets.bottom : 0
 // 主内容高度，整屏除去状态栏高度、底部安全距离
@@ -47,6 +47,7 @@ export default {
       safeAreaInsets,
       screenWidth,
       screenHeight,
+      theme,
       safeBottom,
       mainHeight,
       menuButtonAttr,

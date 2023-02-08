@@ -29,8 +29,9 @@
 			"root": "packageStyle",
 			"pages": [
 				{
-					"path": "style1/index",
+					"path": "Subsection/index",
 					"style": {
+						"navigationStyle": "custom",
 						"enablePullDownRefresh": true
 					}
 				}
@@ -38,10 +39,10 @@
 		}
 	],
 	"tabBar": {
-		"color": "#7A7E83",
-		"selectedColor": "#3cc51f",
-		"borderStyle": "black",
-		"backgroundColor": "#ffffff",
+		"color": "@tabFontColor",
+		"selectedColor": "@tabSelectedColor",
+		"backgroundColor": "@tabBgColor",
+		"borderStyle": "@tabBorderStyle",
 		"list": [
 			{
 				"pagePath": "pages/style/index",
@@ -54,15 +55,17 @@
 		]
 	},
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarBackgroundColor": "@navBgColor",
+		"navigationBarTextStyle": "@navTxtStyle",
+		"backgroundColor": "@bgColor",
+		"backgroundTextStyle": "@bgTxtStyle",
+		"backgroundColorTop": "@bgColorTop",
+		"backgroundColorBottom": "@bgColorBottom"
 	},
 	"easycom": {
-		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue",
 		"custom": {
-			"^Com(.*)": "@/components/common/$1/$1.vue"
+			"^Com(.*)": "@/components/common/$1/$1.vue",
+			"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
 		}
 	}
 }

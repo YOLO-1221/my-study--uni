@@ -1,16 +1,17 @@
 <template>
-  <view class="page"> 组件 </view>
+  <view class="page">
+    <ComNavBar title="组件"></ComNavBar>
+  </view>
 </template>
 
 <script>
 export default {
   data() {
-    return {}
+    return {};
   },
   onLoad() {},
   methods: {},
-}
+};
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
