@@ -3,13 +3,15 @@
 		{
 			"path": "pages/style/index",
 			"style": {
-				"navigationStyle": "custom"
+				// "navigationStyle": "custom"
+				"navigationBarTitleText": "样式"
 			}
 		},
 		{
 			"path": "pages/comp/index",
 			"style": {
-				"navigationStyle": "custom"
+				// "navigationStyle": "custom"
+				"navigationBarTitleText": "组件"
 			}
 		}
 	],

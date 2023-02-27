@@ -1,31 +1,3 @@
-let light = {
-  navBgColor: "#f8f8f8",
-  navTxtStyle: "black",
-  bgColor: "#ffffff",
-  bgTxtStyle: "light",
-  bgColorTop: "#eeeeee",
-  bgColorBottom: "#efefef",
-  tabFontColor: "#000000",
-  tabSelectedColor: "#3cc51f",
-  tabBgColor: "#ffffff",
-  tabBorderStyle: "black",
-};
-
-let dark = {
-  navBgColor: "#292929",
-  navTxtStyle: "white",
-  bgColor: "#1f1f1f",
-  bgTxtStyle: "dark",
-  bgColorTop: "#292929",
-  bgColorBottom: "#1f1f1f",
-  tabFontColor: "#ffffff",
-  tabSelectedColor: "#51a937",
-  tabBgColor: "#292929",
-  tabBorderStyle: "white",
-};
-
 export default {
-  light,
-  dark,
-  curMode: "light",
+  curMode: uni.getSystemInfo().theme,
 };

@@ -1,7 +1,5 @@
 <template>
   <view class="page">
-    <ComNavBar title="样式"></ComNavBar>
-
     <u-cell-group>
       <u-cell title="分段器" url="/packageStyle/Subsection/index"></u-cell>
     </u-cell-group>
@@ -11,14 +9,13 @@
 <script>
 export default {
   data() {
-    return {}
+    return {};
   },
   onLoad() {
-    console.log(uni.$u.config.v)
+    console.log(uni.$u.config.v);
   },
   methods: {},
-}
+};
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

@@ -1,36 +1,33 @@
 <script>
+import { mapMutations } from "vuex";
+
 export default {
   onLaunch() {
-    console.log('App Launch')
+    console.log("App Launch");
   },
+
   onShow() {
-    console.log('App Show', this.theme)
-    if (this.theme === 'light') {
-      uni.$u.mainColor = 'black'
-    }
-    if (this.theme === 'dark') {
-      uni.$u.mainColor = 'white'
-    }
+    let curMode = uni.getSystemInfoSync().theme;
+    this.SET_CUR_MODE(curMode);
+    console.log("onShow", curMode);
   },
-  onHide() {
-    console.log('App Hide')
+
+  onThemeChange(e) {
+    let curMode = e.theme;
+    this.SET_CUR_MODE(curMode);
   },
-  onThemeChange(obj) {
-    theme = obj.theme
-    this.theme = theme
-    if (theme === 'light') {
-      uni.$u.mainColor = 'black'
-    }
-    if (theme === 'dark') {
-      uni.$u.mainColor = 'white'
-    }
+  methods: {
+    ...mapMutations(["SET_CUR_MODE"]),
   },
-}
+};
 </script>
 
 <style lang="scss">
 /* 注意要写在第一行，同时给style标签加入lang="scss"属性 */
-@import 'uview-ui/index.scss';
+@import "uview-ui/index.scss";
+
+@import "./static/iconfont.css";
+
 .cell-hover-class {
   background-color: rgb(235, 237, 238);
 }

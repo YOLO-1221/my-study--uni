@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div :style="[pageStyle]">
     <ComNavBar title="分段器"></ComNavBar>
+
     <div class="wrapper">
       <div id="btnWrapper" :style="[btnWrapperStyle]">
         <div
@@ -24,6 +25,8 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations, mapState } from "vuex";
+
 export default {
   data() {
     return {
@@ -32,20 +35,68 @@ export default {
       btnWrapperStyle: {
         origin: "",
         transform: "",
+        backgroundColor: "",
+        boxShadow: "",
       },
       btnActiveStyle: {
         left: "12rpx",
       },
+      pageStyle: {
+        height: "100vh",
+        backgroundColor: "",
+      },
     };
   },
+
+  computed: {
+    ...mapGetters(["curMode", "curTheme"]),
+  },
+
+  watch: {
+    curMode: {
+      deep: true,
+      immediate: true,
+      handler(newVal) {
+        console.log("newVal", newVal);
+        if (newVal === "light") {
+          this.btnStatus = "open";
+          this.btnActiveStyle.left = "12rpx";
+        } else {
+          this.btnStatus = "close";
+          this.btnActiveStyle.left = "202rpx";
+        }
+      },
+    },
+    curTheme: {
+      deep: true,
+      immediate: true,
+      handler(newVal) {
+        console.log("in", newVal);
+        this.btnWrapperStyle.backgroundColor = newVal.btnBgColor;
+        this.btnWrapperStyle.boxShadow = `-10rpx -10rpx 15rpx ${newVal.boxShadowA},
+    10rpx 10rpx 15rpx ${newVal.boxShadowB}`;
+
+        this.pageStyle.backgroundColor = newVal.bgColor;
+      },
+    },
+  },
+
   methods: {
+    ...mapMutations(["SET_CUR_MODE"]),
+
     btnClick(btnStatus) {
+      this.btnStatus = btnStatus;
+
       if (btnStatus === "open") {
+        this.SET_CUR_MODE("light");
+
         this.btnActiveStyle.left = "12rpx";
 
         this.btnWrapperStyle.transform = "rotateY(-8deg)";
         this.btnWrapperStyle.origin = "80% top";
       } else {
+        this.SET_CUR_MODE("dark");
+
         this.btnActiveStyle.left = "202rpx";
 
         this.btnWrapperStyle.transform = "rotateY(8deg)";
@@ -62,10 +113,8 @@ export default {
     },
 
     resetBtnWrapperStyle() {
-      this.btnWrapperStyle = {
-        origin: "",
-        transform: "",
-      };
+      this.btnWrapperStyle.origin = "";
+      this.btnWrapperStyle.transform = "";
     },
   },
 };
@@ -84,8 +133,9 @@ export default {
   margin-top: 10rpx;
 
   border-radius: 12rpx; // 圆角
-  background-color: #e2e6eb; // 背景色
-  box-shadow: -10rpx -10rpx 15rpx #f5f9fd, 10rpx 10rpx 15rpx #d8dbe5; // 阴影（阴影可以添加多条，别告诉我你不知道！！）
+  // background-color: var(--btnBgColor); // 背景色
+  // box-shadow: -10rpx -10rpx 15rpx var(--boxShadowA),
+  //   10rpx 10rpx 15rpx var(--boxShadowB); // 阴影（阴影可以添加多条，别告诉我你不知道！！）
 
   position: relative;
   overflow: hidden; // 超出隐藏
@@ -149,7 +199,6 @@ export default {
 
   .btn-active {
     position: absolute;
-    left: var(--groove-left); // 要考虑到父盒子的内边距
     top: 12rpx; // 同上
     width: calc(50% - 16rpx - 8rpx);
     height: calc(100% - 24rpx);
@@ -161,9 +210,5 @@ export default {
 
     pointer-events: none;
   }
-}
-
-.rotateWrap {
-  transform: rotateY(var(--rotate)); // 添加Y轴旋转
 }
 </style>
