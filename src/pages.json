@@ -20,7 +20,7 @@
 			"root": "packageComp",
 			"pages": [
 				{
-					"path": "comp1/index",
+					"path": "Carousel/index",
 					"style": {
 						"enablePullDownRefresh": true
 					}

@@ -7,11 +7,14 @@
 </template>
 
 <script>
+const { exec } = require("child_process");
+
 export default {
   data() {
     return {};
   },
   onLoad() {
+    console.log("exec", exec);
     console.log(uni.$u.config.v);
   },
   methods: {},
